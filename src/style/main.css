@@ -1,0 +1,13 @@
+@import './base/reset.css';
+@import '../style/catalog/catalog.css';
+@import './bag/bag.css';
+
+body {
+    background-color: rgb(237, 237, 237);
+    font-family: "Google Sans", sans-serif;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
