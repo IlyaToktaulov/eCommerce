@@ -1,0 +1,16 @@
+.ico-bag {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    transition: all 0.2s ease;
+}
+.ico-bag:hover {
+    cursor: pointer;
+    scale: 1.25;
+}
+
+.ico-bag-img {
+    border-radius: 5px;
+    object-fit: cover;
+}
