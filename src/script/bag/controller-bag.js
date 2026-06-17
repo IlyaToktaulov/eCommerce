@@ -3,11 +3,27 @@ import { View_Bag } from "./view-bag";
 
 export class Controller_Bag {
     constructor() {
-        this.model = new Model_Bag();
+        this.model = new Model_Bag({
+            getBagItemsForIcons: this.bagItemsForIcons,
+            getItemForIcons: this.itemForIcon
+        });
         this.view = new View_Bag();
+    }
+
+    initBagIcons = () => {
+        const bag = this.model.getBag();
+        this.view.getRenderIcon(bag);
     }
 
     addItemToBag = (item) => {
         this.model.add(item);
+    }
+
+    bagItemsForIcons = (items) => {
+        this.view.getRenderIcon(items);
+    }
+
+    itemForIcon = (item) => {
+        this.view.renderIcon(item);
     }
 }
