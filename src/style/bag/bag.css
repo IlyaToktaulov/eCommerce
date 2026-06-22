@@ -26,6 +26,8 @@
 }
 
 .bag-btn {
+    display: flex;
+    justify-content: center;
     width: 220px;
     font-size: 20px;
     font-weight: 600;
@@ -33,6 +35,7 @@
     color: white;
     border: none;
     padding: 10px;
+    text-decoration: none;
     transition: all 0.2s ease;
 }
 .bag-btn:active {
@@ -47,4 +50,30 @@
     margin-bottom: 20px;
     gap: 20px;
     width: 350px;
+}
+
+.bag-overview {
+    width: 70%;
+}
+
+.bag-overview-output {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.page-title {
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+.bag-to-catalog {
+    text-decoration: none;
+    font-family: inherit;
+    color: black;
+    font-size: 22px;
+    transition: font-weight, 0.2s ease;
+}
+.bag-to-catalog:hover {
+    font-weight: 800;
 }
