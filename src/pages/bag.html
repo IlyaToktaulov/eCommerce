@@ -3,22 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eCommerce</title>
-    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="../style/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+    <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <section class="js-catalog-output catalog-section"></section>
+        <section class="bag-overview">
+            <a class="bag-to-catalog" href="../index.html">⬅ Список товаров</a>
+            <h2 class="page-title">Товары в корзине</h2>
+            <div class="js-bag-overview-output bag-overview-output"></div>
+        </section>
         <section class="js-bag bag-section">
             <h2 class="bag-title">Корзина</h2>
             <div class="js-bag-output bag-output"></div>
-            <a class="js-bag-btn bag-btn" href="./pages/bag.html">Корзина</a>
         </section>
     </div>
 
-    <script src="./script/index.js" type="module"></script>
+    <script src="../script/index.js" type="module"></script>
 </body>
 </html>
