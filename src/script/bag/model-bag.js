@@ -8,9 +8,7 @@ export class Model_Bag {
         this.getItemForIcons = getItemForIcons;
     }
 
-    add = (item) => {
-        console.log(item);
-        
+    add = (item) => {   
         const existingItem = this.bag.find(cardItem => cardItem.id === item.id);
 
         if (existingItem) {
@@ -22,6 +20,7 @@ export class Model_Bag {
                 imageURL: item.imageURL,
                 series: item.series,
                 price: item.price,
+                description: item.description,
                 quantity: 1
             });
             

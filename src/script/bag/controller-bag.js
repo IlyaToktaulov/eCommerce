@@ -13,10 +13,11 @@ export class Controller_Bag {
     initBagIcons = () => {
         const bag = this.model.getBag();
         this.view.getRenderIcon(bag);
+        this.view.renderBagOverview(bag);
     }
 
     addItemToBag = (item) => {
-        this.model.add(item);
+        this.model.add(item); 
     }
 
     bagItemsForIcons = (items) => {
