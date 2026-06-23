@@ -22,6 +22,7 @@ export class Model_Catalog {
                 imageURL: doc.data().imageURL,
                 series: doc.data().series,
                 price: doc.data().price,
+                description: doc.data().description,
             })
         });
 

@@ -43,11 +43,17 @@ export class View_Catalog {
                 imageURL: item.imageURL,
                 series: item.series,
                 price: item.price,
+                description: item.description,
             });
         }
 
         div.append(img, model, series, price, button);
 
-        this.catalogNode.append(div);
+        if (!this.catalogNode) {
+            return;
+        } else {
+            this.catalogNode.append(div);
+        }
+
     }
 }

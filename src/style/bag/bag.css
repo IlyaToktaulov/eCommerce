@@ -59,7 +59,9 @@
 .bag-overview-output {
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
     gap: 20px;
+    padding: 30px;
 }
 
 .page-title {
@@ -76,4 +78,50 @@
 }
 .bag-to-catalog:hover {
     font-weight: 800;
+}
+
+/* Карточка товара в корзине */
+
+.overview-card {
+    display: flex;
+    position: relative;
+    height: 300px;
+    gap: 50px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.bag-card-img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 200px;
+}
+
+.bag-card-title {
+    font-size: 31px;
+    margin-bottom: 8px;
+}
+
+.bag-card-series {
+    font-size: 20px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.bag-card-price {
+    font-size: 25px;
+    margin-bottom: 16px;
+}
+
+.bag-card-quantity {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bag-card-description {
+    margin-bottom: 80px;
 }

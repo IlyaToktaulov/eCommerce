@@ -55,4 +55,10 @@
     color: rgb(237, 237, 237);
 }
 
-
+.banner {
+    width: 100%;
+    height: 300px;
+    background-image: url(https://promo.s1.citilink.ru/pvz/img/header.jpg);
+    background-position: 50%;
+    background-size: cover;
+}
