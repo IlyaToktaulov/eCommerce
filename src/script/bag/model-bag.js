@@ -1,11 +1,13 @@
 export class Model_Bag {
     constructor({
         getBagItemsForIcons,
-        getItemForIcons
+        getItemForIcons,
+        getBagSum
     }) {
         this.bag = JSON.parse(localStorage.getItem('bag')) || [];
         this.getBagItemsForIcons = getBagItemsForIcons;
         this.getItemForIcons = getItemForIcons;
+        this.getBagSum = getBagSum;
     }
 
     add = (item) => {   
@@ -32,5 +34,15 @@ export class Model_Bag {
 
     getBag = () => {
         return this.bag;
+    }
+
+    bagSum = (bag) => {
+        let sum = 0;
+
+        bag.forEach(item => {
+            sum += Number(item.price) * item.quantity;
+        });
+
+        this.getBagSum(sum);
     }
 }

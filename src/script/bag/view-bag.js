@@ -2,6 +2,7 @@ export class View_Bag {
     constructor () {
         this.bagOutputNode = document.querySelector('.js-bag-output');
         this.bagOverviewOutputNode = document.querySelector('.js-bag-overview-output');
+        this.bagSumOutputNode = document.querySelector('.js-bag-sum-output');
     }
 
     getRenderIcon = (items) => { 
@@ -32,7 +33,7 @@ export class View_Bag {
     renderBagOverview = (items) => {
 
         if (!items || items.length === 0) {
-            this.bagOverviewOutputNode.innerHTML = 'Корзина пуста';
+            this.bagOverviewOutputNode.innerHTML = `<p class='empty-bag-text'>Корзина пустая</p>`;
             return;
         } else {
             if (!this.bagOverviewOutputNode) {
@@ -41,7 +42,6 @@ export class View_Bag {
                 this.bagOverviewOutputNode.innerHTML = '';
     
                 items.forEach(item => {
-                    console.log(item);
                     
                     this.bagOverviewOutputNode.innerHTML += `
                         <div class='overview-card'>
@@ -50,7 +50,7 @@ export class View_Bag {
                                 <h3 class='bag-card-title'>${item.model}</h3>
                                 <p class='bag-card-series'>${item.series}</p>
                                 <p class='bag-card-description'>${item.description}</p>
-                                <p class='bag-card-price'>${item.price} Руб x ${item.quantity}</p>
+                                <p class='bag-card-price'>${item.price*item.quantity} Руб</p>
                                 <p class='bag-card-quantity'>${item.quantity} шт</p>
                             </div>
                         </div>
@@ -58,5 +58,17 @@ export class View_Bag {
                 });
             }
         }
+    }
+
+    renderBagSum = (sum) => {
+
+        if(!this.bagSumOutputNode) {
+            return;
+        } else {
+            this.bagSumOutputNode.innerHTML = `
+                <p class='bag-sum'>Сумма: ${sum} Руб.</p>
+            ` ;
+        }
+        
     }
 }

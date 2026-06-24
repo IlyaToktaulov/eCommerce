@@ -9,4 +9,4 @@ const catalog = new Controller_Catalog({
 const bag = new Controller_Bag();
 
 catalog.init();
-bag.initBagIcons();
+bag.init();
