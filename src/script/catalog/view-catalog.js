@@ -12,7 +12,7 @@ export class View_Catalog {
 
     renderItem = (item) => {
         const div = document.createElement('div');
-        const model = document.createElement('p');
+        const model = document.createElement('a');
         const series = document.createElement('p');
         const img = document.createElement('img');
         const price = document.createElement('p');
@@ -22,6 +22,7 @@ export class View_Catalog {
         div.dataset.id = item.id; 
 
         model.setAttribute('class', 'item-model');
+        model.setAttribute('href', '');
         model.innerText = item.model;
 
         series.setAttribute('class', 'item-series');

@@ -26,6 +26,13 @@
     margin-top: 16px;
     font-size: 20px;
     font-weight: 800;
+    text-decoration: none;
+    font-style: inherit;
+    color: black;
+    transition: all 0.1s ease;
+}
+.item-model:hover {
+    scale: 1.15;
 }
 
 .item-series {
