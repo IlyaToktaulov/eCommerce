@@ -25,7 +25,7 @@ export class View_Catalog {
             this.renderPopupItem({
                 model: item.model,
                 series: item.series,
-                img: item.img,
+                imageUrl: item.imageURL,
                 price: item.price,
                 description: item.description
             });
@@ -76,7 +76,7 @@ export class View_Catalog {
         const img = document.createElement('img');
         const price = document.createElement('p');
         const description = document.createElement('p');
-        const closeBtn = document.createElement('btn');
+        const closeBtn = document.createElement('p');
 
 
         div.setAttribute('class', 'item-card-content');
@@ -87,19 +87,23 @@ export class View_Catalog {
         series.setAttribute('class', 'item-card-series');
         series.innerText = item.series;
 
+        description.setAttribute('class', 'description-card-series');
+        description.innerText = item.description;
+
         img.setAttribute('class', 'item-card-img');
-        img.setAttribute('src', item.imageURL);
+        img.setAttribute('src', item.imageUrl);
 
         price.setAttribute('class', 'item-card-price');
         price.innerText = `${item.price} Руб`;
 
-        closeBtn.innerText = '✖';
+        closeBtn.setAttribute('class', 'close-btn-item-card')
+        closeBtn.innerText = '⬅ Каталог товаров';
         closeBtn.onclick = () => {
             this.itemCardNode.classList.toggle('popup-open');
             div.remove();
         }
 
-        div.append(img, model, series, price, closeBtn);
+        div.append(closeBtn, img, model, series, price, description);
         this.itemCardNode.append(div);
     }
 }
