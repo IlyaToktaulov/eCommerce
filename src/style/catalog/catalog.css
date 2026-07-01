@@ -13,6 +13,11 @@
     width: 200px;
     flex-basis: calc((100% - (20px * 4)) / 5);
     padding: 16px;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+}
+.item-card:hover {
+    background-color: rgb(210, 210, 210);
 }
 
 .item-img {
@@ -26,13 +31,7 @@
     margin-top: 16px;
     font-size: 20px;
     font-weight: 800;
-    text-decoration: none;
-    font-style: inherit;
-    color: black;
-    transition: all 0.1s ease;
-}
-.item-model:hover {
-    scale: 1.15;
+    cursor: pointer;
 }
 
 .item-series {
