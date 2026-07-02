@@ -17,11 +17,12 @@
 .item-card-content {
     position: relative;
     display: flex;
+    gap: 20px;
     width: 1200px;
     max-height: 100%;
     padding: 50px;
     background-color: white;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     border-radius: 20px;
 }
 
@@ -31,12 +32,31 @@
 }
 
 .item-card-model {
-    font-size: 28px;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.item-card-series {
+    margin-bottom: 50px;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.description-card-series {
+    font-size: 20px;
+    line-height: 25px;
 }
 
 .item-card-img {
     width: 400px;
     object-fit: contain;
+    border-radius: 20px;
+}
+
+.item-card-price {
+    margin-top: 40px;
+    font-size: 28px;
+    font-weight: 600;
 }
 
 .close-btn-item-card {

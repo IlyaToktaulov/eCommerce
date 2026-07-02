@@ -57,6 +57,8 @@ export class View_Catalog {
                 price: item.price,
                 description: item.description,
             });
+
+            event.stopPropagation(); 
         }
 
         div.append(img, model, series, price, button);
@@ -71,6 +73,7 @@ export class View_Catalog {
 
     renderPopupItem = (item) => {
         const div = document.createElement('div');
+        const contentSection = document.createElement('div');
         const model = document.createElement('p');
         const series = document.createElement('p');
         const img = document.createElement('img');
@@ -78,8 +81,9 @@ export class View_Catalog {
         const description = document.createElement('p');
         const closeBtn = document.createElement('p');
 
-
         div.setAttribute('class', 'item-card-content');
+
+        contentSection.setAttribute('class', 'item-catd-content');
 
         model.setAttribute('class', 'item-card-model');
         model.innerText = item.model;
@@ -103,7 +107,8 @@ export class View_Catalog {
             div.remove();
         }
 
-        div.append(closeBtn, img, model, series, price, description);
+        contentSection.append(closeBtn, model, series, description, price);
+        div.append(img, contentSection);
         this.itemCardNode.append(div);
     }
 }
