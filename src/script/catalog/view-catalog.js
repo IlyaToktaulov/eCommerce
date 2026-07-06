@@ -102,7 +102,7 @@ export class View_Catalog {
 
         closeBtn.setAttribute('class', 'close-btn-item-card')
         closeBtn.innerText = '⬅ Каталог товаров';
-        closeBtn.onclick = () => {
+        closeBtn.onclick  = () => {
             this.itemCardNode.classList.toggle('popup-open');
             div.remove();
         }

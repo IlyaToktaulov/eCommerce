@@ -2,12 +2,14 @@ export class Model_Bag {
     constructor({
         getBagItemsForIcons,
         getItemForIcons,
-        getBagSum
+        getBagSum,
+        getRemoveList
     }) {
         this.bag = JSON.parse(localStorage.getItem('bag')) || [];
         this.getBagItemsForIcons = getBagItemsForIcons;
         this.getItemForIcons = getItemForIcons;
         this.getBagSum = getBagSum;
+        this.getRemoveList = this.getRemoveList;
     }
 
     add = (item) => {   
@@ -30,6 +32,12 @@ export class Model_Bag {
         }
 
         localStorage.setItem('bag', JSON.stringify(this.bag));
+    }
+
+    remove = (item) => {
+        this.bag = this.bag.filter(bagItem => bagItem.id !== item.id);
+        localStorage.setItem('bag', JSON.stringify(this.bag));
+        this.getRemoveList(this.bag);
     }
 
     getBag = () => {

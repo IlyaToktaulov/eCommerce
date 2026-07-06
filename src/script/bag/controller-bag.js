@@ -6,7 +6,8 @@ export class Controller_Bag {
         this.model = new Model_Bag({
             getBagItemsForIcons: this.bagItemsForIcons,
             getItemForIcons: this.itemForIcon,
-            getBagSum: this.getSumForRender
+            getBagSum: this.getSumForRender,
+            getRemoveList: this.renderBagOverview
         });
         this.view = new View_Bag();
     }
@@ -28,6 +29,10 @@ export class Controller_Bag {
 
     itemForIcon = (item) => {
         this.view.renderIcon(item);
+    }
+
+    renderBagOverview = (bag) => {
+        this.view.renderBagOverview(bag);
     }
 
     getSumForRender = (sum) => {
