@@ -5,19 +5,28 @@ export class Controller_Bag {
     constructor() {
         this.model = new Model_Bag({
             getBagItemsForIcons: this.bagItemsForIcons,
-            getItemForIcons: this.itemForIcon
+            getItemForIcons: this.itemForIcon,
+            getBagSum: this.getSumForRender,
+            getRemoveList: this.renderBagOverview
         });
-        this.view = new View_Bag();
+        this.view = new View_Bag({
+            deliteThisItem: this.deliteItemFromBag
+        });
     }
 
-    initBagIcons = () => {
+    init = () => {
         const bag = this.model.getBag();
         this.view.getRenderIcon(bag);
         this.view.renderBagOverview(bag);
+        this.model.bagSum(bag);
     }
 
     addItemToBag = (item) => {
         this.model.add(item); 
+    }
+
+    deliteItemFromBag = (item) => {
+        this.model.remove(item);
     }
 
     bagItemsForIcons = (items) => {
@@ -26,5 +35,14 @@ export class Controller_Bag {
 
     itemForIcon = (item) => {
         this.view.renderIcon(item);
+    }
+
+    renderBagOverview = (bag) => {
+        this.view.renderBagOverview(bag);
+        this.view.getRenderIcon(bag);
+    }
+
+    getSumForRender = (sum) => {
+        this.view.renderBagSum(sum);
     }
 }

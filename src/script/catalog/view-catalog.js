@@ -1,6 +1,7 @@
 export class View_Catalog {
     constructor({itemToBag}) {
         this.catalogNode = document.querySelector('.js-catalog-output');
+        this.itemCardNode = document.querySelector('.js-popup-output');
         this.itemToBag = itemToBag;
     }
 
@@ -20,6 +21,17 @@ export class View_Catalog {
 
         div.setAttribute('class', 'item-card');
         div.dataset.id = item.id; 
+        div.onclick = () => {
+            this.renderPopupItem({
+                model: item.model,
+                series: item.series,
+                imageUrl: item.imageURL,
+                price: item.price,
+                description: item.description
+            });
+
+            this.itemCardNode.classList.toggle('popup-open');
+        }
 
         model.setAttribute('class', 'item-model');
         model.innerText = item.model;
@@ -45,6 +57,8 @@ export class View_Catalog {
                 price: item.price,
                 description: item.description,
             });
+
+            event.stopPropagation(); 
         }
 
         div.append(img, model, series, price, button);
@@ -55,5 +69,46 @@ export class View_Catalog {
             this.catalogNode.append(div);
         }
 
+    }
+
+    renderPopupItem = (item) => {
+        const div = document.createElement('div');
+        const contentSection = document.createElement('div');
+        const model = document.createElement('p');
+        const series = document.createElement('p');
+        const img = document.createElement('img');
+        const price = document.createElement('p');
+        const description = document.createElement('p');
+        const closeBtn = document.createElement('p');
+
+        div.setAttribute('class', 'item-card-content');
+
+        contentSection.setAttribute('class', 'item-catd-content');
+
+        model.setAttribute('class', 'item-card-model');
+        model.innerText = item.model;
+
+        series.setAttribute('class', 'item-card-series');
+        series.innerText = item.series;
+
+        description.setAttribute('class', 'description-card-series');
+        description.innerText = item.description;
+
+        img.setAttribute('class', 'item-card-img');
+        img.setAttribute('src', item.imageUrl);
+
+        price.setAttribute('class', 'item-card-price');
+        price.innerText = `${item.price} Руб`;
+
+        closeBtn.setAttribute('class', 'close-btn-item-card')
+        closeBtn.innerText = '⬅ Каталог товаров';
+        closeBtn.onclick  = () => {
+            this.itemCardNode.classList.toggle('popup-open');
+            div.remove();
+        }
+
+        contentSection.append(closeBtn, model, series, description, price);
+        div.append(img, contentSection);
+        this.itemCardNode.append(div);
     }
 }

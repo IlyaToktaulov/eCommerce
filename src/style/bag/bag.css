@@ -125,3 +125,16 @@
 .bag-card-description {
     margin-bottom: 80px;
 }
+
+.bag-sum-output {
+    margin-top: 20px;
+}
+
+.bag-sum {
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.empty-bag-text {
+    font-size: 30px;
+}
