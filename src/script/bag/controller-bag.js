@@ -9,7 +9,9 @@ export class Controller_Bag {
             getBagSum: this.getSumForRender,
             getRemoveList: this.renderBagOverview
         });
-        this.view = new View_Bag();
+        this.view = new View_Bag({
+            deliteThisItem: this.deliteItemFromBag
+        });
     }
 
     init = () => {
@@ -23,6 +25,10 @@ export class Controller_Bag {
         this.model.add(item); 
     }
 
+    deliteItemFromBag = (item) => {
+        this.model.remove(item);
+    }
+
     bagItemsForIcons = (items) => {
         this.view.getRenderIcon(items);
     }
@@ -33,6 +39,7 @@ export class Controller_Bag {
 
     renderBagOverview = (bag) => {
         this.view.renderBagOverview(bag);
+        this.view.getRenderIcon(bag);
     }
 
     getSumForRender = (sum) => {

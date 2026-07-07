@@ -9,7 +9,7 @@ export class Model_Bag {
         this.getBagItemsForIcons = getBagItemsForIcons;
         this.getItemForIcons = getItemForIcons;
         this.getBagSum = getBagSum;
-        this.getRemoveList = this.getRemoveList;
+        this.getRemoveList = getRemoveList;
     }
 
     add = (item) => {   
