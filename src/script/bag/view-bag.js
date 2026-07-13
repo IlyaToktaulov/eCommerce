@@ -11,7 +11,10 @@ export class View_Bag {
         if (!items || items.length ===0) {
             return;
         } else {
+            if (!this.bagOutputNode) return;
+
             this.bagOutputNode.innerHTML = '';
+            
             items.forEach(item => {
                 this.renderIcon(item);
             });
@@ -77,12 +80,12 @@ export class View_Bag {
         description.innerText = item.description;
 
         price.setAttribute('class', 'bag-card-price');
-        price.innerText = item.price*item.quantity;
+        price.innerText = `${item.price*item.quantity} Руб`;
 
         quantity.setAttribute('class', 'bag-card-quantity');
         quantity.innerText = item.quantity;
 
-        deliteBtn.innerText = 'Удалить';
+        deliteBtn.setAttribute('class', 'delite-icon');
         deliteBtn.onclick = () => {
             this.deliteThisItem(item);
         }

@@ -7,7 +7,7 @@ export class Controller_Bag {
             getBagItemsForIcons: this.bagItemsForIcons,
             getItemForIcons: this.itemForIcon,
             getBagSum: this.getSumForRender,
-            getRemoveList: this.renderBagOverview
+            getRemoveList: this.init,
         });
         this.view = new View_Bag({
             deliteThisItem: this.deliteItemFromBag
@@ -35,11 +35,6 @@ export class Controller_Bag {
 
     itemForIcon = (item) => {
         this.view.renderIcon(item);
-    }
-
-    renderBagOverview = (bag) => {
-        this.view.renderBagOverview(bag);
-        this.view.getRenderIcon(bag);
     }
 
     getSumForRender = (sum) => {

@@ -1,0 +1,77 @@
+.order-info-overview {
+    width: 70%;
+}
+
+.total-price-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 30%;
+    padding-left: 20px;
+}
+
+.order-address {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    padding: 30px;
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.order-section-title {
+    margin-bottom: 40px;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.order-info {
+    margin-bottom: 10px;
+    font-size: 20px;
+    letter-spacing: 0.03em;
+}
+
+.order-address-btn {
+    top: 40%;
+    right: 20px;
+    position: absolute;
+    padding: 5px 20px;
+    font-size: 18px;
+    font-family: inherit;
+    border-radius: 10px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+/* PopUp */
+
+.popup-address-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    max-height: 100%;
+    padding: 50px;
+    background-color: white;
+    /* overflow-y: scroll; */
+    border-radius: 20px;
+}
+
+.popup-address-title {
+    font-size: 20px;
+}
+
+.popup-address-input {
+    margin-top: 5px;
+    margin-bottom: 40px;
+    max-width: 500px;
+    font-size: 20px;
+    padding: 5px;
+    border: none;
+    background-color: rgb(237, 237, 237);
+    border-radius: 5px;
+}
