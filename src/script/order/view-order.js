@@ -25,13 +25,13 @@ export class View_Order {
         const cityInput = document.createElement('input');
         const numberTitle = document.createElement('p');
         const numberInput = document.createElement('input');
-        const closeBtn = document.createElement('p');
+        const saveBtn = document.createElement('p');
 
         nameTitle.setAttribute('class', 'popup-address-title');
         nameTitle.innerText = 'Имя';
         nameInput.setAttribute('class', 'popup-address-input');
         nameInput.setAttribute('placeholder', 'Введите имя');
-
+        
         streetTitle.setAttribute('class', 'popup-address-title');
         streetTitle.innerText = 'Улица';
         streetInput.setAttribute('class', 'popup-address-input');
@@ -47,16 +47,32 @@ export class View_Order {
         numberInput.setAttribute('class', 'popup-address-input');
         numberInput.setAttribute('placeholder', 'Введите Номер Телефона');
 
-        closeBtn.setAttribute('class', 'close-btn-item-card');
-        closeBtn.innerText = '⬅ Назад';
-        closeBtn.onclick  = () => {
+        saveBtn.setAttribute('class', 'popup-order-save');
+        saveBtn.innerText = 'Сохранить';
+        saveBtn.onclick  = () => {
+
+            this.nameNode.innerText = nameInput.value;
+            this.streetNode.innerText = `Ул.${streetInput.value}`;
+            this.cityNode.innerText = cityInput.value;
+            this.phoneNode.innerText = numberInput.value;
+
+            this.addressPopupNode.classList.toggle('popup-open');
+            div.remove();
+
+            event.stopPropagation(); 
+        }
+
+        this.addressPopupNode.onclick = () => {
             this.addressPopupNode.classList.toggle('popup-open');
             div.remove();
         }
 
         div.setAttribute('class', 'popup-address-content');
+        div.onclick = () => {
+            event.stopPropagation(); 
+        }
 
-        div.append(nameTitle, nameInput, streetTitle, streetInput, cityTitle, cityInput, numberTitle, numberInput, closeBtn);
+        div.append(nameTitle, nameInput, streetTitle, streetInput, cityTitle, cityInput, numberTitle, numberInput, saveBtn);
         this.addressPopupNode.append(div);
     }
 }
