@@ -11,7 +11,7 @@
     padding-left: 20px;
 }
 
-.order-address {
+.order-select-block {
     margin-top: 40px;
     margin-bottom: 40px;
     display: flex;
@@ -91,4 +91,21 @@
 .popup-order-save:hover {
     cursor: pointer;
     scale: 1.02;
+}
+
+/* Выбор способа оплаты */
+
+.pay-list {
+    margin-bottom: 30px;
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    line-height: 50px;
+    background-color: rgb(237, 237, 237);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+.pay-list:hover {
+    scale: 1.05;
+    cursor: pointer;
 }

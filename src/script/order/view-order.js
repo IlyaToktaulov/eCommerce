@@ -6,11 +6,28 @@ export class View_Order {
         this.phoneNode = document.querySelector('.js-phone-number');
         this.addressBtnNode = document.querySelector('.js-order-address-btn');
         this.addressPopupNode = document.querySelector('.js-popup-output');
+        this.paySelectBtnNode = document.querySelector('.js-pay-btn');
+        this.paySelectNode = document.querySelector('.js-pay-select');
     }
 
     customizeAddress = () => {
+        if (!this.addressBtnNode) {
+            return;
+        } 
+
         this.addressBtnNode.onclick = () => {
             this.renderPopupAddress();
+            this.addressPopupNode.classList.toggle('popup-open');
+        }
+    }
+
+    customizePay = () => {
+        if (!this.paySelectBtnNode) {
+            return;
+        }
+        
+        this.paySelectBtnNode.onclick = () => {
+            this.renderPopupPaySelect();
             this.addressPopupNode.classList.toggle('popup-open');
         }
     }
@@ -73,6 +90,45 @@ export class View_Order {
         }
 
         div.append(nameTitle, nameInput, streetTitle, streetInput, cityTitle, cityInput, numberTitle, numberInput, saveBtn);
+        this.addressPopupNode.append(div);
+    }
+
+    renderPopupPaySelect = () => {
+        const div = document.createElement('div');
+        const creditCard = document.createElement('p');
+        const cash = document.createElement('p');
+
+        div.setAttribute('class', 'popup-address-content');
+
+        creditCard.setAttribute('class', 'pay-list');
+        creditCard.innerText = '💳Оплата картой при получении';
+        creditCard.onclick = () => {
+            this.paySelectNode.innerHTML = creditCard.innerText;
+
+            this.addressPopupNode.classList.toggle('popup-open');
+            div.remove();
+        }
+
+        cash.setAttribute('class', 'pay-list');
+        cash.innerText = '💸Оплата наличными при получении';
+        cash.onclick = () => {
+            this.paySelectNode.innerHTML = cash.innerText;
+
+            this.addressPopupNode.classList.toggle('popup-open');
+            div.remove();
+        }
+
+        this.addressPopupNode.onclick = () => {
+            this.addressPopupNode.classList.toggle('popup-open');
+            div.remove();
+        }
+
+        div.setAttribute('class', 'popup-address-content');
+        div.onclick = () => {
+            event.stopPropagation(); 
+        }
+
+        div.append(creditCard, cash);
         this.addressPopupNode.append(div);
     }
 }

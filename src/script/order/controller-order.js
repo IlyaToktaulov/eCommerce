@@ -9,5 +9,6 @@ export class Controller_Order {
 
     init = () => {
         this.veiw.customizeAddress();
+        this.veiw.customizePay();
     }
 }
