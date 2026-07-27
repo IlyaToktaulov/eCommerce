@@ -1,5 +1,5 @@
 export class View_Order {
-    constructor() {
+    constructor({getNewOrder}) {
         this.nameNode = document.querySelector('.js-name');
         this.streetNode = document.querySelector('.js-street');
         this.cityNode = document.querySelector('.js-city');
@@ -8,6 +8,14 @@ export class View_Order {
         this.addressPopupNode = document.querySelector('.js-popup-output');
         this.paySelectBtnNode = document.querySelector('.js-pay-btn');
         this.paySelectNode = document.querySelector('.js-pay-select');
+        this.orderRegister = document.querySelector('.js-order-click');
+        this.getNewOrder = getNewOrder;
+
+        if(!this.orderRegister) {
+            return;
+        }else {
+            this.orderRegister.addEventListener('click', this.orderInfoParser)
+        }
     }
 
     customizeAddress = () => {
@@ -101,7 +109,7 @@ export class View_Order {
         div.setAttribute('class', 'popup-address-content');
 
         creditCard.setAttribute('class', 'pay-list');
-        creditCard.innerText = '💳Оплата картой при получении';
+        creditCard.innerText = '💳Оплата картой';
         creditCard.onclick = () => {
             this.paySelectNode.innerHTML = creditCard.innerText;
 
@@ -130,5 +138,16 @@ export class View_Order {
 
         div.append(creditCard, cash);
         this.addressPopupNode.append(div);
+    }
+
+    orderInfoParser = () => {
+        this.order = {
+            name: this.nameNode.innerText,
+            street: this.streetNode.innerText,
+            city: this.cityNode.innerText,
+            pNumber: this.phoneNode.innerText,
+            paySelect: this.paySelectNode.innerText,
+        };
+        this.getNewOrder(this.order);
     }
 }
