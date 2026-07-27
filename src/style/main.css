@@ -2,6 +2,8 @@
 @import '../style/catalog/catalog.css';
 @import './bag/bag.css';
 @import "./item-card/item-card.css";
+@import "./order/order.css";
+
 
 body {
     background-color: rgb(237, 237, 237);
