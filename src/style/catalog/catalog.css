@@ -69,3 +69,16 @@
     background-position: 50%;
     background-size: cover;
 }
+/* Order List */
+.js-orders-output {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.order-id {
+    font-size: 20px;
+    font-weight: 600;
+}

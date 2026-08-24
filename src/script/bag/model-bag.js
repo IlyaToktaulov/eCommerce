@@ -40,6 +40,12 @@ export class Model_Bag {
         this.getRemoveList(this.bag);
     }
 
+    removeAllBag = () => {
+        this.bag = [];
+        localStorage.setItem('bag', JSON.stringify(this.bag));
+        this.getRemoveList(this.bag);
+    }
+
     getBag = () => {
         return this.bag;
     }

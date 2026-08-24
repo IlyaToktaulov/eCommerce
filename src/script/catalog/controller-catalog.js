@@ -14,6 +14,7 @@ export class Controller_Catalog {
 
     init() {
         this.model.readItems();
+        this.view.renderOrderList();
     }
 
     renderCatalogFromFirebase = (items) => {

@@ -2,6 +2,7 @@ export class View_Catalog {
     constructor({itemToBag}) {
         this.catalogNode = document.querySelector('.js-catalog-output');
         this.itemCardNode = document.querySelector('.js-popup-output');
+        this.orderOutputNode = document.querySelector('.js-orders-output');
         this.itemToBag = itemToBag;
     }
 
@@ -110,5 +111,19 @@ export class View_Catalog {
         contentSection.append(closeBtn, model, series, description, price);
         div.append(img, contentSection);
         this.itemCardNode.append(div);
+    }
+
+    renderOrderList = () => {
+        let orders = JSON.parse(localStorage.getItem('orders'));
+        
+        if (!this.orderOutputNode) {
+            return;
+        }
+        
+        orders.forEach(order => {
+            this.orderOutputNode.innerHTML += `
+                <p class='order-id'>${order.id}</p>
+            `;
+        });
     }
 }
