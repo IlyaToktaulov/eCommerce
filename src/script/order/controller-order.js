@@ -17,4 +17,8 @@ export class Controller_Order {
     setNewOrder = (order) => {
         this.model.orderInWork(order);
     }
+
+    getListFromBag = (bag) => {
+        
+    }
 }
